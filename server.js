@@ -60,8 +60,9 @@ const requestListener = async (req, res) => {
           const updatedData = await Post.findByIdAndUpdate(id, data, {
             new: true,
           });
-          console.log('updatedData', updatedData);
           successHandle(res, updatedData);
+        } else {
+          errorHandle(res);
         }
       } catch (error) {
         errorHandle(res);
