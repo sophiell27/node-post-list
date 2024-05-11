@@ -56,11 +56,24 @@ const requestListener = async (req, res) => {
       try {
         const id = req.url.split('/').pop();
         const data = JSON.parse(body);
-        if (id && data) {
+        const hasData =
+          data.title ||
+          data.author ||
+          data.content ||
+          data.category ||
+          data.comment ||
+          data.commentCount ||
+          data.likes ||
+          data.image;
+        if (id && hasData) {
           const updatedData = await Post.findByIdAndUpdate(id, data, {
             new: true,
           });
-          successHandle(res, updatedData);
+          if (updatedData) {
+            successHandle(res, updatedData);
+          } else {
+            errorHandle(res);
+          }
         } else {
           errorHandle(res);
         }
@@ -72,7 +85,6 @@ const requestListener = async (req, res) => {
     try {
       const id = req.url.split('/').pop();
       const deleteData = await Post.findByIdAndDelete(id);
-      console.log('deleteData', deleteData);
       if (deleteData) {
         successHandle(res, deleteData);
       } else {
@@ -84,7 +96,6 @@ const requestListener = async (req, res) => {
   } else if (isPostUrl && method === 'DELETE') {
     try {
       await Post.deleteMany({});
-      console.log('result', result);
       successHandle(res, []);
     } catch (error) {
       errorHandle(res);
