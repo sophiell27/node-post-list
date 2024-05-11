@@ -1,0 +1,103 @@
+{
+	"info": {
+		"_postman_id": "2537fa28-4511-4ba4-be52-2bc465558de8",
+		"name": "Posts - render",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "24637802"
+	},
+	"item": [
+		{
+			"name": "get all posts",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://node-post-list.onrender.com/posts"
+			},
+			"response": []
+		},
+		{
+			"name": "post  a post",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"happy day\",\n    \"author\": \"GG\",\n    //   \"category\",\n    \"content\": \"1231231\",\n    //   \"comment\",\n    //   \"commentCount\",\n    //   \"likes\",\n    \"image\": \"https://www.pexels.com/photo/close-up-photograph-of-flowers-931177/\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://node-post-list.onrender.com/posts"
+			},
+			"response": []
+		},
+		{
+			"name": "patch a post",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"XXX\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://node-post-list.onrender.com/posts/"
+			},
+			"response": []
+		},
+		{
+			"name": "delete all posts",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "https://node-post-list.onrender.com/posts"
+			},
+			"response": []
+		},
+		{
+			"name": "delete a post",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "https://node-post-list.onrender.com/posts/123"
+			},
+			"response": []
+		},
+		{
+			"name": "404",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://node-post-list.onrender.com/possdfdf"
+			},
+			"response": []
+		},
+		{
+			"name": "OPTIONS",
+			"request": {
+				"method": "OPTIONS",
+				"header": [],
+				"url": "https://node-post-list.onrender.com/posts"
+			},
+			"response": []
+		}
+	]
+}
